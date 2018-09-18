@@ -38,25 +38,25 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
 
     private void initData() {
         PublisherAddress harperCollinsAddress = new PublisherAddress("Street 1", "Some Ville", "Idaho", "I1234");
-        PublisherAddress harperCollinsPublisherAddress = publisherAddressRepository.save(harperCollinsAddress);
-        Publisher harperCollins = new Publisher("Harper Collins", harperCollinsPublisherAddress);
-        Publisher harperCollinsPublisher = publisherRepoistory.save(harperCollins);
+        publisherAddressRepository.save(harperCollinsAddress);
+        Publisher harperCollins = new Publisher("Harper Collins", harperCollinsAddress);
+        publisherRepoistory.save(harperCollins);
 
         Author eric = new Author("Eric", "Evens");
-        Book ddd = new Book("Domain Driven Design", "12345", harperCollinsPublisher);
+        Book ddd = new Book("Domain Driven Design", "12345", harperCollins);
         eric.getBooks().add(ddd);
         ddd.getAuthors().add(eric);
 
         authorRepository.save(eric);
         bookRepository.save(ddd);
 
-        PublisherAddress worxAddress = new PublisherAddress("Street 2", "Some Place", "Ville One Be", "Indiana", "K8734");
-        PublisherAddress worxPublisherAddress = publisherAddressRepository.save(worxAddress);
-        Publisher worx = new Publisher("Worx", worxPublisherAddress);
-        Publisher worxPublisher = publisherRepoistory.save(worx);
+        PublisherAddress wroxAddress = new PublisherAddress("Street 2", "Some Place", "Ville One", "Indiana", "K8734");
+        publisherAddressRepository.save(wroxAddress);
+        Publisher wrox = new Publisher("Wrox", wroxAddress);
+        publisherRepoistory.save(wrox);
 
         Author rod = new Author("Rod", "Johnson");
-        Book noEJB = new Book("J2EE development without EJB", "34534543", worxPublisher);
+        Book noEJB = new Book("J2EE development without EJB", "34534543", wrox);
         rod.getBooks().add(noEJB);
         noEJB.getAuthors().add(rod);
 
