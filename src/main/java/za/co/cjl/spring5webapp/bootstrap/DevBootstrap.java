@@ -50,7 +50,7 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
         authorRepository.save(eric);
         bookRepository.save(ddd);
 
-        PublisherAddress worxAddress = new PublisherAddress("Street 2", "Some Place", "Ville One", "Indiana", "K8734");
+        PublisherAddress worxAddress = new PublisherAddress("Street 2", "Some Place", "Ville One Be", "Indiana", "K8734");
         PublisherAddress worxPublisherAddress = publisherAddressRepository.save(worxAddress);
         Publisher worx = new Publisher("Worx", worxPublisherAddress);
         Publisher worxPublisher = publisherRepoistory.save(worx);
